@@ -3,20 +3,27 @@ import random
 
 # Initialize the app
 app = flask.Flask(__name__)
+
 #---------------------Python function----------------------------#
-#some model to calculate recommendation scores
-#hard-coded fake recs
+
 def getrecs(beer):
-    recs= ['brouwerij st. bernardus nv - st. bernardus witbier', 
+
+    #hard-coded fake recs
+    recs= [
+            "brouwerij st. bernardus nv - st. bernardus witbier", 
             "avery brewing company - liliko'i kepolo",
-            'fort george brewery + public house - quick wit',
-            'catawba brewing co. - white zombie ale',
-            'bierbrouwerij de koningshoeven b.v. - la trappe witte trappist',
-            'einstök ölgerð (einstök beer company) - icelandic white ale',
-            'harvest moon brewery - beltian white',
-            'russian river brewing company - little white lie',
-            'anheuser-busch - shock top belgian white',
-            'full pint brewing company - white lightning']
+            "fort george brewery + public house - quick wit",
+            "catawba brewing co. - white zombie ale",
+            "bierbrouwerij de koningshoeven b.v. - la trappe witte trappist",
+            "einstök ölgerð (einstök beer company) - icelandic white ale",
+            "harvest moon brewery - beltian white",
+            "russian river brewing company - little white lie",
+            "anheuser-busch - shock top belgian white",
+            "full pint brewing company - white lightning"
+        ]
+
+    # recs should be replaced with actual beer recommendation function
+
     return recs
 
 #loads the page
