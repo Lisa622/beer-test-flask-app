@@ -1,0 +1,54 @@
+<!doctype html>
+<body style = "background-image:white;">
+<title>BEER</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}"> -->
+<div class=page>
+  <h1><font color= "black"> Beer Recommendations</font></h1>
+   
+
+   <script type = "text/javascript">
+
+
+     function getwords(){
+      console.log("here");
+       $.ajax({
+         type: "POST",
+         contentType: "application/json; charset=utf-8",
+         url: "/gof",
+         dataType: "json",
+         async: true,
+         data: "{\"grid\": [\""+document.getElementById("txtName").value+"\"]}",
+         success: function (d) {
+          //console.log(d.words);
+          var txtOutput = document.getElementById("txtOutput");
+          //var testRun = d.words;
+          //console.log(testRun);
+        txtOutput.value = d.words;
+        //txtOutput.value = txtOutput.join("\n");
+         }
+       })
+     }
+
+ </script>
+
+
+  <form action = >
+
+  <label><font color= "black">Beer You Like: </font> </label>
+  <input style = "background-color:white;font-size: 16px;" type = "text" 
+    id = "txtName" 
+    onchange = getwords() />
+
+  <input type = "button"
+    value = "Get Beer Recommendations!"
+    onclick = "getwords()" /><br>
+
+  <textarea style = "background-color:white;font-size: 48px;" id = "txtOutput" rows = "20" cols = "85">
+  </textarea>
+
+
+ </form>
+<br>
+</body>
+</div>
