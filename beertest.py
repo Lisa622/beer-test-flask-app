@@ -8,7 +8,7 @@ app = flask.Flask(__name__)
 
 def getrecs(beer):
 
-    #hard-coded fake recs
+    #hard-coded fake recs - to be replaced
     recs= [
             "brouwerij st. bernardus nv - st. bernardus witbier", 
             "avery brewing company - liliko'i kepolo",
@@ -22,7 +22,70 @@ def getrecs(beer):
             "full pint brewing company - white lightning"
         ]
 
-    # recs should be replaced with actual beer recommendation function
+    # EXAMPLE JSON - PREFERRED FOR STATIC DATA
+    #
+    # recs= [
+    #     {
+    #         brewery: "brouwerij st. bernardus nv",
+    #         beer_name: "st. bernardus witbier",
+    #         feature_img: "http://example.com/assets/img_123.jpg",
+    #         alc_percent: 5.8
+    #     }, 
+    #     {
+    #         brewery: "avery brewing company",
+    #         beer_name: "liliko'i kepolo",
+    #         feature_img: "http://example.com/assets/img_123.jpg",
+    #         alc_percent: 5.8
+    #     },
+    #     {
+    #         brewery: "fort george brewery + public house",
+    #         beer_name: "quick wit",
+    #         feature_img: "http://example.com/assets/img_123.jpg",
+    #         alc_percent: 5.8
+    #     },
+    #     {
+    #         brewery: "catawba brewing co.",
+    #         beer_name: "white zombie ale",
+    #         feature_img: "http://example.com/assets/img_123.jpg",
+    #         alc_percent: 5.8
+    #     },
+    #     {
+    #         brewery: "bierbrouwerij de koningshoeven b.v.",
+    #         beer_name: "la trappe witte trappist",
+    #         feature_img: "http://example.com/assets/img_123.jpg",
+    #         alc_percent: 5.8
+    #     },
+    #     {
+    #         brewery: "einstök ölgerð (einstök beer company)",
+    #         beer_name: "icelandic white ale",
+    #         feature_img: "http://example.com/assets/img_123.jpg",
+    #         alc_percent: 5.8
+    #     },
+    #     {
+    #         brewery: "harvest moon brewery",
+    #         beer_name: "beltian white",
+    #         feature_img: "http://example.com/assets/img_123.jpg",
+    #         alc_percent: 5.8
+    #     },
+    #     {
+    #         brewery: "russian river brewing company",
+    #         beer_name: "little white lie",
+    #         feature_img: "http://example.com/assets/img_123.jpg",
+    #         alc_percent: 5.8
+    #     },
+    #     {
+    #         brewery: "anheuser-busch",
+    #         beer_name: "shock top belgian white",
+    #         feature_img: "http://example.com/assets/img_123.jpg",
+    #         alc_percent: 5.8
+    #     },
+    #     {
+    #         brewery: "full pint brewing company",
+    #         beer_name: "white lightning",
+    #         feature_img: "http://example.com/assets/img_123.jpg",
+    #         alc_percent: 5.8
+    #     }
+    # ]
 
     return recs
 
