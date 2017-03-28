@@ -3,7 +3,8 @@ import pickle
 import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-
+import math
+from math import *
 # Initialize the app
 app = flask.Flask(__name__)
 
@@ -18,11 +19,12 @@ def recs(df,numrecs, weights):
     (df['same_style']*weights['samestyle']) + (weights['text']*df['distance'])
     sort_distances = df.sort_values(by='score', axis=0, ascending=False, inplace=False)
     num_recs = numrecs
-    recs = sort_distances.iloc[:num_recs,:2]
+    recs = sort_distances.iloc[:num_recs,:5]
     reclist = list(recs.itertuples())
     reclist2 = []
     for i in reclist:
-        reclist2.append(i[2]+' - '+i[1])
+        abv = math.floor(i[5]*10)/10
+        reclist2.append({'brewery':i[2], 'beername': i[1],'style':i[3],'abv': abv})
     return reclist2
 
 def getrecs(userbeer,df):
@@ -76,4 +78,4 @@ def score():
 
 # Start the app server on port 80
 # (The default website port)
-app.run(host='0.0.0.0', port=8004)
+app.run(host='0.0.0.0', port=8004, debug=True)

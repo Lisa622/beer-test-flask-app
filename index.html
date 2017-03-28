@@ -12,7 +12,7 @@
 
    <script type = "text/javascript">
 
-
+   var tst;
      function getwords(){
       console.log("here");
        $.ajax({
@@ -23,12 +23,26 @@
          async: true,
          data: "{\"grid\": [\""+document.getElementById("txtName").value+"\"]}",
          success: function (d) {
-          //console.log(d.words);
+          tst = d;
+          console.log(d);
           var txtOutput = document.getElementById("txtOutput");
+          var i = 1;
+          d.words.forEach(function(e) {
+            txtOutput.value += "Beer #" + i + '\n'
+            txtOutput.value += "Name: " + e.beername + '\n';
+            txtOutput.value += "Brewery: " + e.brewery + '\n';
+            txtOutput.value += "Style: " + e.style + '\n';
+            txtOutput.value += "ABV: " + e.abv + '\n';
+            i+=1;
+          });
           //var testRun = d.words;
           //console.log(testRun);
-        txtOutput.value = d.words;
+        //txtOutput.value = d.words;
+        //console.log(d.words)
+        // var data = d.words
         //txtOutput.value = txtOutput.join("\n");
+        //d3.selectAll("textarea")
+
          }
        })
      }
@@ -47,7 +61,7 @@
     value = "Get Beer Recommendations!"
     onclick = "getwords()" /><br>
 
-  <textarea style = "background-color:white;font-size: 48px;" id = "txtOutput" rows = "20" cols = "85">
+  <textarea style = "background-color:white;font-size: 36px;" id = "txtOutput" rows = "20" cols = "85">
   </textarea>
 
 
